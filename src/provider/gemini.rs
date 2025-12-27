@@ -6,6 +6,7 @@ use serde_json::{json, Value};
 
 #[derive(Clone)]
 pub struct GeminiConfig {
+    api_key: String,
     model: String,
     api_base_url: String,
 }
@@ -14,9 +15,10 @@ impl GeminiConfig {
     pub fn new(api_key: String, model: Option<String>) -> Self {
         let model = model.unwrap_or_else(|| "gemini-2.0-flash".to_string());
         Self {
+            api_key,
             api_base_url: format!(
-                "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent?key={}",
-                model, api_key
+                "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent",
+                model
             ),
             model,
         }
@@ -50,6 +52,7 @@ impl GeminiProvider {
             .client
             .post(&self.config.api_base_url)
             .header("Content-Type", "application/json")
+            .header("x-goog-api-key", &self.config.api_key)
             .json(&payload)
             .send()
             .await?;
