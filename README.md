@@ -173,6 +173,7 @@ export LUMEN_AI_MODEL="gpt-4o"
 | [Ollama](https://github.com/ollama/ollama) `ollama` | No (local) | [see list](https://github.com/ollama/ollama/blob/main/docs/api.md#model-names) (required) |
 | [OpenRouter](https://openrouter.ai/) `openrouter` | Yes | [see list](https://openrouter.ai/models) (default: `anthropic/claude-3.5-sonnet`) |
 | [DeepSeek](https://www.deepseek.com/) `deepseek` | Yes | `deepseek-chat`, `deepseek-reasoner` (default: `deepseek-reasoner`) |
+| [Google Gemini](https://ai.google.dev/) `gemini` | Yes | [see list](https://ai.google.dev/gemini-api/docs/models/gemini) (default: `gemini-2.0-flash`) |
 
 ## Advanced Configuration 🔅
 
